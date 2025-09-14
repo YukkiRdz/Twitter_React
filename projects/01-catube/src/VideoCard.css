@@ -1,0 +1,13 @@
+.ct-videoCard {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: .8rem;
+    justify-content: space-between;
+}
+
+.ct-videoCard-avatar {
+    width: 1280px;
+    height: 720px;
+    border-radius: 1000px;
+}
