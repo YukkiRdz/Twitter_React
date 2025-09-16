@@ -4,12 +4,14 @@
     color: #fff;
     font-size: .8rem;
     justify-content: space-between;
+    gap: 30px;
+    max-width: 310px;
 }
 
 .ct-subsCard-header {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 15px;
 }
 
 .ct-subsCard-info {
