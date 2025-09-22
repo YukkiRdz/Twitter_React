@@ -1,6 +1,6 @@
 import './ShortCard.css'
 
-export function ShortCard({thumbnail, avatar, title, userName, view, date}) {
+export function ShortCard({thumbnail, avatar, title, userName}) {
     return (
         <article className="sr-shortCard" >
             <header className="sr-shortCard-header" >
@@ -9,7 +9,7 @@ export function ShortCard({thumbnail, avatar, title, userName, view, date}) {
             <div className="sr-shortCard-info">
                 <div className="sr-shortCard-infoShort">
                     <span className="sr-shortCard-title">{title}</span>
-                    <span>{view}-{date}</span>
+                    <span>view • date</span>
                 </div>
             </div>
             <div className="sr-shortCard-infoUser">

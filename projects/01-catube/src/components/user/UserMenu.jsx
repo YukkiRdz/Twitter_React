@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faSignOut, faTv, faUserFriends, faMoon, faGear, faQuestionCircle, faComments} from '@fortawesome/free-solid-svg-icons';
 import './UserMenu.css';
-import StudioIcon from '../../assets/logo/StudioIcon.svg'
 
 export function UserMenu() {
     //Start closed

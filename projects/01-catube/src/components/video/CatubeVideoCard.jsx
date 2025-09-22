@@ -1,7 +1,6 @@
 import './VideoCard.css'
 
 export function CatubeVideoCard ({thumbnail, avatar, userName, title, description}) {
-
     return (
         <article className="ct-videoCard">
             <header className="ct-videoCard-header">
@@ -10,7 +9,7 @@ export function CatubeVideoCard ({thumbnail, avatar, userName, title, descriptio
             <div className="ct-videoCard-info">
                 <div className="ct-videoCard-infoVideo">
                     <span className="ct-videoCard-title">{title}</span>
-                    <span>views + fecha</span>
+                    <span>view • date</span>
                 </div>
                 <div className="ct-videoCard-infoUser">
                     <div className="ct-videoCard-user">
