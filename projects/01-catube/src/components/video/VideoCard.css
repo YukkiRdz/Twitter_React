@@ -3,9 +3,13 @@
     color: #fff;
     font-size: .8rem;
     gap: 20px;
+    flex-direction: column;
+    width: 360px;
+    overflow: hidden;
 }
 
 .ct-videoCard-thumbnail {
+    cursor: pointer;
     width: 360px;
     height: auto;
     border-radius: 20px;
@@ -24,11 +28,13 @@
 }
 
 .ct-videoCard-info .ct-videoCard-title {
+    cursor: pointer;
     font-size: large;
     font-weight: 400;
 }
 
 .ct-videoCard-infoUser {
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;

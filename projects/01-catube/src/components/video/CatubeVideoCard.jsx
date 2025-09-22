@@ -1,3 +1,5 @@
+import './VideoCard.css'
+
 export function CatubeVideoCard ({thumbnail, avatar, userName, title, description}) {
 
     return (

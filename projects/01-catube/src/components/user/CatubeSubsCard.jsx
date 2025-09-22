@@ -1,8 +1,9 @@
 import { useState } from "react";
+import './CatubeSubsCard.css'
 
-export function CatubeSubsCard({ avatar, userName,subscriptions, children, isFollowing: initialIsFollowing }) {
+export function CatubeSubsCard({ avatar, userName, subscriptions, isFollowing: initialIsFollowing }) {
     const [isFollowing, setIsFollowing] = useState(initialIsFollowing);
-
+    
     const text = isFollowing ? 'Subscribed' : 'Subscribe';
     const buttonClassName = isFollowing
         ? 'ct-subsCard-button is-following'
@@ -15,13 +16,9 @@ export function CatubeSubsCard({ avatar, userName,subscriptions, children, isFol
     return (
         <article className="ct-subsCard">
             <header className="ct-subsCard-header">
-                <img
-                className="ct-subsCard-avatar"
-                src={avatar}
-                alt={`Avatar de ${userName}`}
-                />
+                <img className="ct-subsCard-avatar" src={avatar} alt={`Avatar de ${userName}`}/>
                 <div className="ct-subsCard-info">
-                <strong>{children}</strong>
+                <span className="ct-subsCard-userName">{userName}</span>
                 <span className="ct-subsCard-infoUserName">{subscriptions}</span>
                 </div>
             </header>
