@@ -29,6 +29,7 @@ export function NotificationMenu() {
         const handleEscape = (e) => {
             if (e.key === 'Escape') {
                 setIsOpen(false);
+                document.activeElement.blur(); //Remove focus from button
             }
         };
 
