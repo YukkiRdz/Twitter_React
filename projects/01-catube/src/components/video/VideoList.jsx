@@ -1,4 +1,5 @@
 import {CatubeVideoCard} from './CatubeVideoCard'
+import './VideoList.css'
 
 export function VideoList({videos}) {
     return (

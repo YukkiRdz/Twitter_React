@@ -1,6 +1,6 @@
 .ct-videoCard {
     display: flex;
-    color: #fff;
+    color: var(--text);
     font-size: .8rem;
     gap: 20px;
     flex-direction: column;

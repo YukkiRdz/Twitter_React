@@ -1,4 +1,5 @@
 import {CatubeSubsCard} from './CatubeSubsCard'
+import './ChannelList.css'
 
 export function ChannelList ({channels}){
     return (
@@ -9,6 +10,7 @@ export function ChannelList ({channels}){
                 userName={channel.userName}
                 avatar={channel.avatar}
                 subscriptions={channel.subscriptions}
+                isFollowing={false}
                 />
             ))}
         </div>

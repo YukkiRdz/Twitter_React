@@ -5,6 +5,9 @@ import { ChannelList } from '../user/ChannelList.jsx'
 import { VideoList } from '../video/VideoList.jsx'
 import Header from '../header/Header.jsx'
 
+//Styles
+import './Search.css';
+
 //Assets
 import Angel from '../../assets/images/profile/angel.jpg'
 import Yukki from '../../assets/images/profile/yukki.jpg'
@@ -22,7 +25,12 @@ export function Search() {
       { id: 1, avatar: Angel, userName: "Colithoxz", subscriptions: "3.4M subs" },
       { id: 2, avatar: Gena, userName: "Sheni", subscriptions: "4K subs" },
       { id: 3, avatar: Jere, userName: "Gazzard", subscriptions: "3.4K subs" },
-      { id: 4, avatar: Yukki, userName: "yukki", subscriptions: "2 subs" }
+      { id: 4, avatar: Yukki, userName: "yukki", subscriptions: "2 subs" },
+      { id: 5, avatar: Angel, userName: "Colithoxz", subscriptions: "3.4M subs" },
+      { id: 6, avatar: Gena, userName: "Sheni", subscriptions: "4K subs" },
+      { id: 7, avatar: Jere, userName: "Gazzard", subscriptions: "3.4K subs" },
+      { id: 8, avatar: Yukki, userName: "yukki", subscriptions: "2 subs" },
+      { id: 9, avatar: Jere, userName: "Gazzard", subscriptions: "3.4K subs" }
     ],
     []
   );
@@ -32,6 +40,12 @@ export function Search() {
       { id: 1, thumbnail, avatar: Yukki, title:'Pinterest Swap Challenge', userName: "Yukki", description: "esto es una descripcion de prueba. repito esto es una descripcion de prueba" },
       { id: 2, thumbnail, avatar: Gena, title:'title 2', userName: "Sheni", description: "esto es una descripcion de prueba. repito esto es una descripcion de prueba" },
       { id: 3, thumbnail, avatar: Jere, title:'title 3', userName: "Gazzard", description: "esto es una descripcion de prueba. repito esto es una descripcion de prueba" },
+      { id: 4, thumbnail, avatar: Yukki, title:'Pinterest Swap Challenge', userName: "Yukki", description: "esto es una descripcion de prueba. repito esto es una descripcion de prueba" },
+      { id: 5, thumbnail, avatar: Gena, title:'title 2', userName: "Sheni", description: "esto es una descripcion de prueba. repito esto es una descripcion de prueba" },
+      { id: 6, thumbnail, avatar: Jere, title:'title 3', userName: "Gazzard", description: "esto es una descripcion de prueba. repito esto es una descripcion de prueba" },
+      { id: 7, thumbnail, avatar: Yukki, title:'Pinterest Swap Challenge', userName: "Yukki", description: "esto es una descripcion de prueba. repito esto es una descripcion de prueba" },
+      { id: 8, thumbnail, avatar: Gena, title:'title 2', userName: "Sheni", description: "esto es una descripcion de prueba. repito esto es una descripcion de prueba" },
+      { id: 9, thumbnail, avatar: Jere, title:'title 3', userName: "Gazzard", description: "esto es una descripcion de prueba. repito esto es una descripcion de prueba" },
     ],
     []
   );
@@ -57,23 +71,21 @@ export function Search() {
 
 
   return (
-    <section className='search-page'>
-      <header>
-        <Header
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-        />
-      </header>
-      <main className='main-content'>
-        <section className='channel-section'>
+    <div className="search-page">
+      <Header
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
+      <main className="main-content">
+        <section className="channel-section">
           <ChannelList channels={filteredChannels} />
         </section>
-        <section className='video-section'>
+        <section className="video-section">
           <VideoList videos={filteredVideos} />
         </section>
       </main>
-    </section>
-  )
+    </div>
+  );
 }
 
 export default Search
