@@ -1,10 +1,11 @@
 import React, {useState, useMemo} from 'react'
 
 //Components
-import { ChannelList } from '../user/ChannelList.jsx'
-import { VideoList } from '../video/VideoList.jsx'
-import { ShortList } from '../short/ShortList.jsx'
-import Header from '../header/Header.jsx'
+import { ChannelList } from '../../components/user/ChannelList.jsx'
+import { VideoList } from '../../components/video/VideoList.jsx'
+import { ShortList } from '../../components/short/ShortList.jsx'
+import Header from '../../components/header/Header.jsx'
+import Catbot from '../../components/catbot/catbot.jsx'
 
 //Styles
 import './Search.css';
@@ -90,6 +91,9 @@ export function Search() {
         setSearchQuery={setSearchQuery}
       />
       <main className="main-content">
+        <section className='catbot'>
+          <Catbot />
+        </section>
         <section className="channel-section">
           <ChannelList channels={filteredChannels} />
         </section>

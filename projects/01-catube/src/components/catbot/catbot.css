@@ -1,0 +1,25 @@
+.catbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.catbotHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--btn);
+    max-width: 450px;
+}
+
+.catbotLogo {
+    width: 48px;
+    height: 48px;
+}

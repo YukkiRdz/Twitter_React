@@ -35,9 +35,37 @@
     background-color: #1e1e1f;
     border-radius: 8px;
     padding: 0.5rem;
-    width: 240px;
+    width: 400px;
+    max-height: 385px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     z-index: 10;
+    overflow: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.notification-dropdown::-webkit-scrollbar {
+    width: 8px;
+}
+
+.notification-dropdown::-webkit-scrollbar-thumb {
+    background-color: var(--btn);
+    border-radius: var(--border-radius);
+}
+
+.titleNotificationMenu {
+    margin-bottom: 9px;
+    padding: 0.5rem;
+}
+
+.notification-empty {
+    padding: 0.5rem;
+}
+
+.notification-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
 }
 
 .notification-item {
@@ -45,6 +73,12 @@
     padding: 0.5rem;
     color: var(--text);
     font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
 }
 
 .notification-item:hover {
