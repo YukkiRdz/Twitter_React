@@ -1,4 +1,4 @@
-import React, {useState, useMemo} from 'react'
+import {useState, useMemo} from 'react'
 
 //Components
 import { ChannelList } from '../../components/user/ChannelList.jsx'

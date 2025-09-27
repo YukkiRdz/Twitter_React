@@ -4,9 +4,12 @@ import CatbotLogo from '../../assets/logo/catbot_white.svg'
 //style
 import './catbot.css'
 
-import { useState } from "react";
+//components
+import { useState } from 'react';
+import { useDropdown } from '../hooks/useDropdown.jsx';
 
 export default function Catbot() {
+    const { isOpen, toggleMenu, menuRef } = useDropdown();
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState("");
 
@@ -34,36 +37,33 @@ export default function Catbot() {
     };
 
     return (
-        <div className="catbot">
-            <div className="catbotHeader">
+        <div className="catbot" ref={menuRef}>
+            <button className={`catbotButton ${isOpen ? "hidden" : ""}`} onClick={toggleMenu}>
                 <img className='catbotLogo' src={CatbotLogo} alt="Catbot logo" />
-            </div>
-            <div className="catbotMessageContainer">
-                {messages.map((msg, i) => (
-                <div
-                    key={i}
-                    className='catbotMessage'
-                >
-                    {msg.text}
-                </div>
-                ))}
-            </div>
-
-        <div className="catbotInputContainer">
-            <input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-            placeholder="Escribe tu mensaje..."
-            className="catbotInput"
-            />
-            <button
-            onClick={sendMessage}
-            className="catbotButton"
-            >
-            Enviar
             </button>
-        </div>
+            {isOpen && (
+                <div className="catbotDropdown">
+                    <div className="catbotHeader">
+                        <img className='catbotLogo' src={CatbotLogo} alt="Catbot logo" />
+                        <h3 className='titleCatbot'>CatBot</h3>
+                    </div>
+
+                    <div className="catbotMessageContainer">
+                        {messages.map((msg, i) => (
+                            <div key={i} className='catbotMessage'>
+                                {msg.text}
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="catbotInputContainer">
+                        <input value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && sendMessage()} placeholder="Escribe tu mensaje..." className="catbotInput"/>
+                        <button onClick={sendMessage} className="catbotButton">
+                            Enviar
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
