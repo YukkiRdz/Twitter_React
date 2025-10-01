@@ -1,45 +1,30 @@
-import { useState, useRef, useEffect } from 'react';
+//styles
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faSignOut, faTv, faUserFriends, faMoon, faGear, faQuestionCircle, faComments} from '@fortawesome/free-solid-svg-icons';
 import './UserMenu.css';
 
+//components
+import { useDropdown } from '../hooks/useDropdown.jsx';
+import { FriendMenu } from '../modal/friendMenu.jsx'
+import { useModal } from '../hooks/useModal.jsx';
+
+//assets
+import Yukki from '../../assets/images/profile/yukki.jpg'
+import Sheni from '../../assets/images/profile/gena.jpg'
+import Gazzard from '../../assets/images/profile/jere.jpg'
+import Colithox from '../../assets/images/profile/angel.jpg'
+
 export function UserMenu() {
-    //Start closed
-    const [isOpen, setIsOpen] = useState(false);
-    //Detect cliks off menu
-    const menuRef = useRef(null);
+    const { isOpen, toggleMenu, menuRef } = useDropdown();
+    const { modalIsOpen, toggleModal, modalRef } = useModal()
 
-    //Toggle dropdown
-    const toggleMenu = () => setIsOpen(prev => !prev)
-
-    //Close on outside click or Escape
-    useEffect(() => {
-        //Close with click off menu
-        const handleClickOutside = (e) => {
-            //If click off menu, it closes
-            if (menuRef.current && !menuRef.current.contains(e.target)) {
-                setIsOpen(false);
-            }
-        };
-
-        //Close with esc
-        const handleEscape = (e) => {
-            if (e.key === 'Escape') {
-                setIsOpen(false);
-                document.activeElement.blur(); //Remove focus from button
-            }
-        };
-
-        document.addEventListener('mousedown', handleClickOutside);
-        document.addEventListener('keydown', handleEscape);
-
-        //Very important clear the eventListener
-        return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-        document.removeEventListener('keydown', handleEscape);
-        };
-    }, []);
-
+    var friends = [
+        {profile: Yukki, userName: 'Yukki' },
+        {profile: Sheni, userName: 'Sheni' },
+        {profile: Gazzard, userName: 'Gazzard' },
+        {profile: Colithox, userName: 'Colithox'}
+    ]
+    
     return (
         <div className="user-menu" ref={menuRef}>
                 <button className="user-button" onClick={toggleMenu}>
@@ -52,7 +37,10 @@ export function UserMenu() {
                         <li className='menuUserButtonLi'>
                             <button className='menuUserButton'><FontAwesomeIcon className='buttonIcon' icon={faSignOut} />Log In</button>
                             <button className='menuUserButton'><FontAwesomeIcon className='buttonIcon' icon={faTv} />Your channel</button>
-                            <button className='menuUserButton'><FontAwesomeIcon className='buttonIcon' icon={faUserFriends} />Friends</button>
+                            <button className='menuUserButton' onClick={toggleModal}><FontAwesomeIcon className='buttonIcon' icon={faUserFriends}/>Friends</button>
+                                {modalIsOpen && (
+                                    <FriendMenu friends={friends} ref={modalRef} />
+                                )}
                             <button className='menuUserButton'>
                                 <svg className="StudioIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 99.3 58.04">
                                     <path

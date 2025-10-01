@@ -1,5 +1,6 @@
 //Hooks
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
+import { useDropdown } from '../hooks/useDropdown.jsx';
 
 //styles
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,8 +15,8 @@ import Yukki from '../../assets/images/profile/yukki.jpg'
 
 
 export function NotificationMenu() {
-    //Start closed
-    const [isOpen, setIsOpen] = useState(false);
+    const { isOpen, toggleMenu, menuRef } = useDropdown();
+
     const [notifications, setNotifications] = useState([
         { id: 1, type: 'upload', userName: 'Gazzard' },
         { id: 2, type: 'comment', userName: 'Sheni' },
@@ -51,39 +52,7 @@ export function NotificationMenu() {
             mention: ` ${userName} te mencionó en un comentario`
         };
         return templates[type] || `${userName} hizo algo`;
-        };
-
-    const menuRef = useRef(null); //useRef detect clicks off menu
-
-    //Toggle dropdown
-    const toggleMenu = () => setIsOpen(prev => !prev);
-
-    //Close on outside click or Escape
-    useEffect(() => {
-        //Close with click off menu
-        const handleClickOutside = (e) => {
-            if (menuRef.current && !menuRef.current.contains(e.target)) {
-                setIsOpen(false);
-            }
-        };
-
-        //Close with esc
-        const handleEscape = (e) => {
-            if (e.key === 'Escape') {
-                setIsOpen(false);
-                document.activeElement.blur(); //Remove focus from button
-            }
-        };
-
-        document.addEventListener('mousedown', handleClickOutside);
-        document.addEventListener('keydown', handleEscape);
-
-        //Very important clear the eventListener
-        return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-        document.removeEventListener('keydown', handleEscape);
-        };
-    }, []);
+    };
 
     //Mark notification as read
     const markAsRead = (id) => {

@@ -1,0 +1,83 @@
+.friends-sidebar {
+    width: 300px;
+    height: 350px;
+    background-color: rgba(30, 30, 31, 0.85);
+    box-shadow: 0 0 30px 5px rgba(0, 0, 0, .493);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    position: fixed;
+    z-index: 3;
+    right: 0;
+    top: 195px;
+    margin-right: 300px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.friendSidebar-headerOne {
+    height: 75px;
+    padding: 20px;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+}
+
+.friendSidebar-status select {
+    border-radius: 30px;
+    background-color: transparent;
+    border: 1px solid var(--text-color);
+    color: (var(--text-color));
+    cursor: pointer;
+}
+
+.friendSidebar-status select:focus {
+    outline: none;
+    border-color: var(--btn);
+}
+
+/* .friendSidebar-status select option {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    cursor: pointer;
+} */
+
+/* .friendSidebar-status select option:hover {
+    cursor: pointer;
+    background-color: var(--btn);
+} */
+
+.friendSidebar-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.friendSidebar-headerTwo.hidden {
+    display: none;
+}
+
+.friends-sidebar main {
+    display: flex;
+    flex-direction: column;
+}
+
+.modalFriendCard {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    padding: 0 0 1rem 1rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.FriendImg {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--border-radius);
+}

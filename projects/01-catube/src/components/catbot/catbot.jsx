@@ -1,5 +1,5 @@
 //assets
-import CatbotLogo from '../../assets/logo/catbot_white.svg'
+import CatbotLogo from '../../assets/logo/catbot_black.svg'
 
 //style
 import './catbot.css'
@@ -10,8 +10,8 @@ import { useDropdown } from '../hooks/useDropdown.jsx';
 
 export default function Catbot() {
     const { isOpen, toggleMenu, menuRef } = useDropdown();
-    const [messages, setMessages] = useState([]);
-    const [input, setInput] = useState("");
+    const [ messages, setMessages ] = useState([]);
+    const [ input, setInput ] = useState("");
 
     const sendMessage = async () => {
         if (!input.trim()) return;

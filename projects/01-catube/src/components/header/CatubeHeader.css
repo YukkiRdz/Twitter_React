@@ -14,8 +14,6 @@
     z-index: 10;
 }
 
-
-
 /* === Logo === */
 .sr-header-logo {
     display: flex;
@@ -34,6 +32,7 @@
 
 .sr-header-title {
     font-weight: bold;
+    font-size: 1.5rem;
 }
 
 /* === Search bar === */
@@ -45,7 +44,7 @@
 
 .sr-header-micButton {
     padding: 0.3rem 0.5rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     background-color: var(--primary-color);
     color: var(--text);
     border: none;
@@ -121,9 +120,14 @@
     padding: 0.3rem 0.5rem;
     background-color: var(--primary-color);
     color: var(--text);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     gap: 10px;
 }
+
+.sr-header-createLabel{
+    font-size: 1.2rem;
+}
+
 .sr-header-createButton {
     cursor: pointer;
 }
