@@ -105,6 +105,7 @@
 }
 
 .plusIcon {
+    font-size: 1rem;
     background-color: var(--btn);
     padding: 2px;
     border-radius: var(--border-radius);

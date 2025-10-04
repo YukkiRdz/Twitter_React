@@ -4,9 +4,10 @@ import { faUser, faSignOut, faTv, faUserFriends, faMoon, faGear, faQuestionCircl
 import './UserMenu.css';
 
 //components
-import { useDropdown } from '../hooks/useDropdown.jsx';
 import { FriendMenu } from '../modal/friendMenu.jsx'
-import { useModal } from '../hooks/useModal.jsx';
+
+//hooks
+import { useOverlay } from '../hooks/useOverlay.jsx';
 
 //assets
 import Yukki from '../../assets/images/profile/yukki.jpg'
@@ -15,8 +16,25 @@ import Gazzard from '../../assets/images/profile/jere.jpg'
 import Colithox from '../../assets/images/profile/angel.jpg'
 
 export function UserMenu() {
-    const { isOpen, toggleMenu, menuRef } = useDropdown();
-    const { modalIsOpen, toggleModal, modalRef } = useModal()
+    const {
+        isOpen: isUserMenuOpen,
+        toggle: toggleUserMenu,
+        close: closeUserMenu,
+        overlayRef: userMenuRef
+    } = useOverlay();
+
+    const {
+        isOpen: isFriendsOpen,
+        toggle: toggleFriends,
+        close: closeFriends,
+        overlayRef: friendsRef
+    } = useOverlay();
+    
+    // Close friends menu when user menu is toggled
+    const handleUserMenuToggle = () => {
+        toggleUserMenu();
+        closeFriends();
+    };
 
     var friends = [
         {profile: Yukki, userName: 'Yukki' },
@@ -26,20 +44,20 @@ export function UserMenu() {
     ]
     
     return (
-        <div className="user-menu" ref={menuRef}>
-                <button className="user-button" onClick={toggleMenu}>
+        <div className="user-menu" ref={userMenuRef}>
+                <button className="user-button" onClick={handleUserMenuToggle}>
                     <FontAwesomeIcon icon={faUser} />
                 </button>
     
-            {isOpen && (
+            {isUserMenuOpen && (
                 <div className="user-dropdown">
                     <ul>
                         <li className='menuUserButtonLi'>
                             <button className='menuUserButton'><FontAwesomeIcon className='buttonIcon' icon={faSignOut} />Log In</button>
                             <button className='menuUserButton'><FontAwesomeIcon className='buttonIcon' icon={faTv} />Your channel</button>
-                            <button className='menuUserButton' onClick={toggleModal}><FontAwesomeIcon className='buttonIcon' icon={faUserFriends}/>Friends</button>
-                                {modalIsOpen && (
-                                    <FriendMenu friends={friends} ref={modalRef} />
+                            <button className='menuUserButton' onClick={toggleFriends}><FontAwesomeIcon className='buttonIcon' icon={faUserFriends}/>Friends</button>
+                                {isFriendsOpen && (
+                                    <FriendMenu friends={friends} ref={friendsRef} />
                                 )}
                             <button className='menuUserButton'>
                                 <svg className="StudioIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 99.3 58.04">

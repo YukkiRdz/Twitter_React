@@ -1,5 +1,5 @@
 //Components
-import SearchBar from "../search/SearchBar"
+import SearchBar from "../hooks/SearchBar.jsx"
 import { NotificationMenu } from "../notifications/NotificationMenu.jsx";
 import { UserMenu } from "../user/UserMenu.jsx";
 

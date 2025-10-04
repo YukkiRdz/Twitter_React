@@ -6,10 +6,16 @@ import './catbot.css'
 
 //components
 import { useState } from 'react';
-import { useDropdown } from '../hooks/useDropdown.jsx';
+import { useOverlay } from '../hooks/useOverlay.jsx';
 
 export default function Catbot() {
-    const { isOpen, toggleMenu, menuRef } = useDropdown();
+    const {
+        isOpen: isCatBotOpen,
+        toggle: toggleCatBot,
+        close: closeCatBot,
+        overlayRef: CatBotRef
+    } = useOverlay();
+
     const [ messages, setMessages ] = useState([]);
     const [ input, setInput ] = useState("");
 
@@ -37,11 +43,11 @@ export default function Catbot() {
     };
 
     return (
-        <div className="catbot" ref={menuRef}>
-            <button className={`catbotButton ${isOpen ? "hidden" : ""}`} onClick={toggleMenu}>
+        <div className="catbot" ref={CatBotRef}>
+            <button className={`catbotButton ${isCatBotOpen ? "hidden" : ""}`} onClick={toggleCatBot}>
                 <img className='catbotLogo' src={CatbotLogo} alt="Catbot logo" />
             </button>
-            {isOpen && (
+            {isCatBotOpen && (
                 <div className="catbotDropdown">
                     <div className="catbotHeader">
                         <img className='catbotLogo' src={CatbotLogo} alt="Catbot logo" />

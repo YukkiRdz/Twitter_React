@@ -1,6 +1,6 @@
 //Hooks
 import { useState } from 'react';
-import { useDropdown } from '../hooks/useDropdown.jsx';
+import { useOverlay } from '../hooks/useOverlay.jsx';
 
 //styles
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,7 +15,12 @@ import Yukki from '../../assets/images/profile/yukki.jpg'
 
 
 export function NotificationMenu() {
-    const { isOpen, toggleMenu, menuRef } = useDropdown();
+    const {
+            isOpen: isNotificationMenuOpen,
+            toggle: toggleNotificationMenu,
+            close: closeNotificationMenu,
+            overlayRef: NotificationMenuRef
+        } = useOverlay();
 
     const [notifications, setNotifications] = useState([
         { id: 1, type: 'upload', userName: 'Gazzard' },
@@ -61,14 +66,14 @@ export function NotificationMenu() {
     };
 
     return (
-        <div className="notification-menu" ref={menuRef}>
-            <button className="notification-button" onClick={toggleMenu}>
+        <div className="notification-menu" ref={NotificationMenuRef}>
+            <button className="notification-button" onClick={toggleNotificationMenu}>
                 <FontAwesomeIcon icon={faBell} />
                 {/* If there are notifications show the counter in a Badge */}
                 {notifications.length > 0 && (<span className="notification-badge">{notifications.length}</span>)}
             </button>
 
-        {isOpen && (
+        {isNotificationMenuOpen && (
             <div className="notification-dropdown">
                 <h3 className='titleNotificationMenu'>Notifications</h3>
                 {/* Show a message if there are no notifications */}

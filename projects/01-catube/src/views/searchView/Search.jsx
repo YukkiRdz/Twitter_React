@@ -70,8 +70,7 @@ export function Search() {
   );
 
   //filtros
-  const filteredChannels = channels.filter((ch) => ch.userName.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredChannels = channels.filter((ch) => ch.userName.toLowerCase().includes(searchQuery.toLowerCase()));
 
   const filteredVideos = videos.filter((vd) => 
     vd.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
