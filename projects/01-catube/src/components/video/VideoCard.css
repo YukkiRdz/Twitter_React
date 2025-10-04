@@ -57,3 +57,7 @@
     font-size: medium;
     opacity: .6;
 }
+
+.ct-videoCard-description.watch {
+    display: none;
+}

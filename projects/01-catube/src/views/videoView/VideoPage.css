@@ -9,6 +9,7 @@
 .main-content-video {
     margin-top: 50px;
     margin-left: 130px;
+    width: 100vw;
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 20px;

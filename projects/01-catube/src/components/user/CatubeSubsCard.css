@@ -12,6 +12,10 @@
     width: 350px;
 }
 
+.ct-subsCard.watch{
+    background: none;
+}
+
 /* === Avatar e info === */
 .ct-subsCard-header {
     align-items: center;

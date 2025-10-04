@@ -8,3 +8,10 @@
     border-radius: var(--border-radius);
     margin-bottom: 1rem;
 }
+
+.sr-videosSection.watch {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 430px;
+}
