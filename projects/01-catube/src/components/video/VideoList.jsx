@@ -7,6 +7,7 @@ export function VideoList({videos}) {
             {videos.map((video) => (
                 <CatubeVideoCard 
                 key={video.id}
+                id={video.id}
                 thumbnail={video.thumbnail}
                 title={video.title}
                 avatar={video.avatar}

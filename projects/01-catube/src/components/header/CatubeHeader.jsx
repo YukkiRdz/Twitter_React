@@ -7,6 +7,7 @@ import { UserMenu } from "../user/UserMenu.jsx";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMicrophone, faSearch} from '@fortawesome/free-solid-svg-icons';
 
+import { Link } from 'react-router-dom';
 
 export function CatubeHeader({logo, searchQuery, setSearchQuery}) {
     return (
@@ -23,7 +24,9 @@ export function CatubeHeader({logo, searchQuery, setSearchQuery}) {
                         searchQuery={searchQuery}
                         setSearchQuery={setSearchQuery}
                     />
-                    <button className="sr-header-searchButton"><FontAwesomeIcon icon={faSearch}/></button>
+                    <Link to={`/`}>
+                        <button className="sr-header-searchButton"><FontAwesomeIcon icon={faSearch}/></button>
+                    </Link>
                 </div>
             </div>
             <div className="sr-header-right">

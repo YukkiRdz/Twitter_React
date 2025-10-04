@@ -1,10 +1,14 @@
 import './VideoCard.css'
 
-export function CatubeVideoCard ({thumbnail, avatar, userName, title, description}) {
+import { Link } from 'react-router-dom';
+
+export function CatubeVideoCard ({id, thumbnail, avatar, userName, title, description}) {
     return (
         <article className="ct-videoCard">
             <header className="ct-videoCard-header">
-                <img className='ct-videoCard-thumbnail' src={thumbnail} alt="thumbnail" />
+                <Link to={`/watch/${id}`}>
+                    <img className='ct-videoCard-thumbnail' src={thumbnail} alt="thumbnail" />
+                </Link>
             </header>
             <div className="ct-videoCard-info">
                 <div className="ct-videoCard-infoVideo">

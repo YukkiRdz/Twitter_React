@@ -1,0 +1,10 @@
+.vv-displayVideo {
+    border-radius: var(--border-radius);
+}
+
+.vv-displayVideo-description {
+    background-color: var(--primary-color);
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: var(--border-radius);
+}
